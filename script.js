@@ -16,7 +16,7 @@ function addingNewBooktoLibrary(name, author){
     return myLibrary.push(newBook);
 }
 
-addingNewBooktoLibrary('Rabbit', 'poo')
+addingNewBooktoLibrary('Rabbit', 'Alice Wonderland')
 
 addingNewBooktoLibrary('abc', '123')
 
