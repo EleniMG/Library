@@ -40,3 +40,12 @@ for (let i = 0; i < myLibrary.length; i++) {
     gridTile.appendChild(gridContent);
 
 }
+
+// Opening and closing form
+
+function openForm(){
+    return document.getElementById("pop-up-form").style.display = 'block'
+
+}
+
+document.getElementById("new-book-form-button").addEventListener("click", openForm)
