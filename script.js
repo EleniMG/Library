@@ -41,11 +41,21 @@ for (let i = 0; i < myLibrary.length; i++) {
 
 }
 
-// Opening and closing form
+// Opening form
 
 function openForm(){
     return document.getElementById("pop-up-form").style.display = 'block'
-
 }
 
 document.getElementById("new-book-form-button").addEventListener("click", openForm)
+
+
+
+function bookSubmission(event) {
+    event.preventDefault()
+     let submissionMessage = "Thank you for submitting your book!"
+    document.getElementById("pop-up-form").innerHTML += submissionMessage
+}
+
+
+document.getElementById("submit-button").addEventListener("click", bookSubmission)
