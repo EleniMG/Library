@@ -49,6 +49,12 @@ function openForm(){
 
 document.getElementById("new-book-form-button").addEventListener("click", openForm)
 
+// Adding new books to the library
+
+let newBookAuthor = document.getElementById('author').value
+let newBookTitle = document.getElementById('title').value
+let newBookLength = document.getElementById('numberOfPages').value
+// let alreadyRead = document.querySelector('input[name='alreadyRead']')
 
 
 function bookSubmission(event) {
