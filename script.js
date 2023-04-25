@@ -36,8 +36,13 @@ for (let i = 0; i < myLibrary.length; i++) {
 
     const gridTile = document.createElement("div");
     const gridContent = document.createTextNode(Object.values(myLibrary[i]).join(" by "));
+    const createRemoveButton = document.createElement('button')
+    const createReadButton = document.createElement('button')
     grid.appendChild(gridTile);
     gridTile.appendChild(gridContent);
+    gridTile.appendChild(createRemoveButton).innerText = 'Remove'
+    gridTile.appendChild(createReadButton).innerText = 'Read'
+    
 
 }
 
@@ -54,7 +59,7 @@ document.getElementById("new-book-form-button").addEventListener("click", openFo
 let newBookAuthor = document.getElementById('author').value
 let newBookTitle = document.getElementById('title').value
 let newBookLength = document.getElementById('numberOfPages').value
-// let alreadyRead = document.querySelector('input[name='alreadyRead']')
+
 
 
 function bookSubmission(event) {
