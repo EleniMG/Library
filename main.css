@@ -17,3 +17,7 @@ h1{
 #pop-up-form {
     display: none;
 }
+
+.read:active{
+    background-color: rgb(63, 138, 138);
+}
