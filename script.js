@@ -1,31 +1,30 @@
 let myLibrary = [
-    {name: 'Autobiography of John Bloggs', author: 'John Bloggs'},
-    {name: 'Butobiography of Hohn Bloggs', author: 'Hohn Bloggs'}
+    {id: '1', name: 'Autobiography of John Bloggs', author: 'John Bloggs', read: true},
+    {id: '2', name: 'Butobiography of Hohn Bloggs', author: 'Hohn Bloggs', read: false}
 ];
 
 
 // Creating 'Book' object
 
-function Book(name, author){
+function Book(id, name, author, read){
+    this.id = id;
     this.name = name;
     this.author = author;
+    this.read = read;
 }
 
-// const hP = new Book('Harry Potter', 'PK Bowling')
-
-// console.log(hP)
 
 
 // Pushing the 'Book' object to the library array
 
-function addingNewBooktoLibrary(name, author){
-    const newBook = new Book(name, author);
+function addingNewBooktoLibrary(id, name, author, read){
+    const newBook = new Book(id, name, author, read);
     return myLibrary.push(newBook);
 }
 
-addingNewBooktoLibrary('Rabbit', 'Alice Wonderland')
+addingNewBooktoLibrary('3', 'Rabbit', 'Alice Wonderland', false)
 
-addingNewBooktoLibrary('abc', '123')
+addingNewBooktoLibrary('4', 'abc', '123', false)
 
 
 // Displaying each book on the page
@@ -38,12 +37,16 @@ for (let i = 0; i < myLibrary.length; i++) {
     const gridContent = document.createTextNode(Object.values(myLibrary[i]).join(" by "));
     const createRemoveButton = document.createElement('button')
     const createReadButton = document.createElement('button')
-    grid.appendChild(gridTile).setAttribute("id", myLibrary[i].name);;
+    grid.appendChild(gridTile).setAttribute("id", myLibrary[i].id);;
     gridTile.appendChild(gridContent);
     gridTile.appendChild(createRemoveButton).innerText = 'Remove'
     gridTile.appendChild(createReadButton).innerText = 'Read'
     createReadButton.setAttribute("class", "read");
     createRemoveButton.setAttribute("class", "remove");
+
+    if (myLibrary[i].read) {
+        gridTile.classList.add('read-container')
+    }
     
 }
 
@@ -73,12 +76,23 @@ function bookSubmission(event) {
 document.getElementById("submit-button").addEventListener("click", bookSubmission)
 
 
-// Changing read status
-
+// Changing read status and colour of grid tile
 
 function readABook(event){
     const parent = event.target.parentElement;
-    return parent.style.backgroundColor = "red"
+
+    const parentId = parent.getAttribute('id')
+
+    myLibrary.map(book => {
+        if (book.id === parentId){
+            book.read = !book.read
+
+            book.read ? parent.classList.add('read-container') : parent.classList.remove('read-container')
+        }
+    })
+
+    
+    
 }
 
-document.querySelectorAll('.read').forEach(element =>element.addEventListener("click", readABook));
+document.querySelectorAll('.read').forEach(element => element.addEventListener("click", readABook));
