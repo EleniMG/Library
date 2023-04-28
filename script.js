@@ -34,11 +34,11 @@ const grid = document.querySelector('.library-grid');
 
 for (let i = 0; i < myLibrary.length; i++) {
 
-    const gridTile = document.createElement("div");
+    const gridTile = document.createElement("div")
     const gridContent = document.createTextNode(Object.values(myLibrary[i]).join(" by "));
     const createRemoveButton = document.createElement('button')
     const createReadButton = document.createElement('button')
-    grid.appendChild(gridTile);
+    grid.appendChild(gridTile).setAttribute("id", myLibrary[i].name);;
     gridTile.appendChild(gridContent);
     gridTile.appendChild(createRemoveButton).innerText = 'Remove'
     gridTile.appendChild(createReadButton).innerText = 'Read'
@@ -75,9 +75,10 @@ document.getElementById("submit-button").addEventListener("click", bookSubmissio
 
 // Changing read status
 
-document.querySelector('.read').addEventListener("click", readABook);
 
-function readABook(){
-    console.log('hello') 
+function readABook(event){
+    const parent = event.target.parentElement;
+    return parent.style.backgroundColor = "red"
 }
 
+document.querySelectorAll('.read').forEach(element =>element.addEventListener("click", readABook));
