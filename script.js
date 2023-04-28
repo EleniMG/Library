@@ -42,8 +42,9 @@ for (let i = 0; i < myLibrary.length; i++) {
     gridTile.appendChild(gridContent);
     gridTile.appendChild(createRemoveButton).innerText = 'Remove'
     gridTile.appendChild(createReadButton).innerText = 'Read'
+    createReadButton.setAttribute("class", "read");
+    createRemoveButton.setAttribute("class", "remove");
     
-
 }
 
 // Opening form
@@ -70,3 +71,13 @@ function bookSubmission(event) {
 
 
 document.getElementById("submit-button").addEventListener("click", bookSubmission)
+
+
+// Changing read status
+
+document.querySelector('.read').addEventListener("click", readABook);
+
+function readABook(){
+    console.log('hello') 
+}
+
