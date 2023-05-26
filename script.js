@@ -34,7 +34,7 @@ const grid = document.querySelector('.library-grid');
 for (let i = 0; i < myLibrary.length; i++) {
 
     const gridTile = document.createElement("div")
-    const gridContent = document.createTextNode(Object.values(myLibrary[i]).join(" by "));
+    const gridContent = document.createTextNode(Object.values(myLibrary[i]).join(" - "));
     const createRemoveButton = document.createElement('button')
     const createReadButton = document.createElement('button')
     grid.appendChild(gridTile).setAttribute("id", myLibrary[i].id);;
